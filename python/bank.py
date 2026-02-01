@@ -1,9 +1,24 @@
-import os, getpass, fun, hashlib, os
+import os, getpass, hashlib, os
 from time import sleep
 
 
 account = {}
 id = 1001 
+
+def detail_intake():    #function for detail input                                #function for inputing user details
+    while True:
+        try:
+            name = input("Enter your Full name : ")
+            age = int(input("Enter your age : "))
+            if age < 18:
+                print("\nYou are not eligable yet. ")
+            else:
+                break
+
+        except ValueError:  
+            print("·(age should only contain integeres)")
+       
+    return name, age
 
                             
 def clear_ter():                                        #function to clear terminal 
@@ -17,7 +32,7 @@ while True:
      
     #  1 . account creation
     if choice == '1':
-        result = fun.detail_intake()
+        result = detail_intake()
         sleep(1)
 
         
@@ -43,7 +58,7 @@ while True:
 
             if retake == '':
                 clear_ter()
-                result = fun.detail_intake()
+                result = detail_intake()
                 clear_ter()
 
                 while True:
@@ -75,7 +90,7 @@ while True:
 
 
 
-      # Manage account
+      #2. Manage account
     elif choice == '2':
         cust_id = input("Enter your customer ID : ")
         pin_in = getpass.getpass("Enter your PIN : ")
